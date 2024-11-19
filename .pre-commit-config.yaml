@@ -26,7 +26,13 @@ repos:
 
   - repo: https://github.com/PyCQA/docformatter
     rev: master
+    # Update to latest release after fix to deprecated python_venv
     hooks:
       - id: docformatter
         additional_dependencies: [tomli]
         args: [--in-place, --config, ./pyproject.toml]
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.5.2
+    hooks:
+      - id: uv-lock
